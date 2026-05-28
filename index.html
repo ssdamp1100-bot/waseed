@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم شبكة الميادين الرقمية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fab, .fas, .far { display: inline-block; min-width: 1em; text-align: center; }
+  </style>
+</head>
+<body>
+  <div id="toast-container" role="alert" aria-live="polite"></div>
+
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-brand">
+        <div class="brand-icon">
+          <i class="fab fa-connectdevelop"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">شبكة الميادين</span>
+          <span class="brand-system">نظام وسيط الرقمي</span>
+          <span class="brand-role">لوحة التحكم</span>
+        </div>
+      </div>
+
+      <nav class="topbar-nav" id="topbar-nav">
+        <a href="#" class="nav-link active" data-section="dashboard"><i class="fas fa-chart-pie"></i><span>الرئيسية</span></a>
+        <a href="#" class="nav-link" data-section="operations"><i class="fas fa-exchange-alt"></i><span>العمليات</span></a>
+        <a href="#" class="nav-link" data-section="logs"><i class="fas fa-history"></i><span>السجلات</span></a>
+        <a href="#" class="nav-link" data-section="reports"><i class="fas fa-file-alt"></i><span>التقارير</span></a>
+      </nav>
+
+      <div class="topbar-actions">
+        <button class="icon-btn notification-btn" id="notification-btn" aria-label="الإشعارات">
+          <i class="fas fa-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+        <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="تبديل الثيم">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <div class="user-profile">
+          <div class="user-avatar"><span>م</span></div>
+          <div class="user-info">
+            <span class="user-name">مؤسسة الميادين</span>
+            <span class="user-plan">الباقة الاحترافية</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="القائمة">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="dashboard">
+    <div class="dashboard-inner">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-check-circle"></i>
+            <span>النشط: منذ 0 دقيقة</span>
+          </div>
+          <h1 class="hero-title">مرحباً بك، شبكة الميادين الرقمية</h1>
+          <div class="hero-meta">
+            <p class="hero-subtitle">
+              <i class="fas fa-hashtag"></i>
+              الرقم التسلسلي للشبكة: 77
+            </p>
+            <p class="hero-subtitle">
+              <i class="fas fa-wallet"></i>
+              المحفظة المالية : جيب
+            </p>
+          </div>
+        </div>
+        <div class="hero-decoration">
+          <div class="hero-shape"></div>
+          <div class="hero-shape"></div>
+          <div class="hero-shape"></div>
+        </div>
+      </section>
+
+      <!-- KPI Cards -->
+      <section class="kpi-row">
+        <div class="kpi-card" style="--kpi-color: var(--accent-primary);">
+          <div class="kpi-icon"><i class="fas fa-sim-card"></i></div>
+          <div class="kpi-info">
+            <span class="kpi-label">الكروت المباعة</span>
+            <span class="kpi-value" id="kpi-cards">0</span>
+          </div>
+          <div class="kpi-trend up"><i class="fas fa-arrow-up"></i><span id="kpi-cards-trend">+12.5%</span></div>
+        </div>
+        <div class="kpi-card" style="--kpi-color: var(--accent-success);">
+          <div class="kpi-icon"><i class="fas fa-money-bill-wave"></i></div>
+          <div class="kpi-info">
+            <span class="kpi-label">إجمالي الدخل</span>
+            <span class="kpi-value" id="kpi-income">0</span>
+          </div>
+          <div class="kpi-trend up"><i class="fas fa-arrow-up"></i><span id="kpi-income-trend">+8.2%</span></div>
+        </div>
+        <div class="kpi-card" style="--kpi-color: var(--accent-warning);">
+          <div class="kpi-icon"><i class="fas fa-clock"></i></div>
+          <div class="kpi-info">
+            <span class="kpi-label">آخر عملية شراء</span>
+            <span class="kpi-value" id="kpi-last">منذ 3 دقائق</span>
+          </div>
+          <div class="kpi-trend neutral"><i class="fas fa-circle"></i><span id="kpi-last-trend">باقة 100</span></div>
+        </div>
+        <div class="kpi-card" style="--kpi-color: var(--accent-primary);">
+          <div class="kpi-icon"><i class="fas fa-users"></i></div>
+          <div class="kpi-info">
+            <span class="kpi-label">المشتركين النشطاء</span>
+            <span class="kpi-value" id="kpi-subscribers">0</span>
+          </div>
+          <div class="kpi-trend up"><i class="fas fa-arrow-up"></i><span id="kpi-subs-trend">+3.7%</span></div>
+        </div>
+      </section>
+
+      <!-- Extra Components -->
+      <section class="extra-components">
+        <div class="quick-actions">
+          <h3><i class="fas fa-bolt"></i> إجراءات سريعة</h3>
+          <div class="actions-grid">
+            <button class="action-btn"><i class="fas fa-coins"></i><span>إضافة رصيد</span></button>
+            <button class="action-btn"><i class="fas fa-chart-bar"></i><span>تقارير</span></button>
+            <button class="action-btn"><i class="fas fa-headset"></i><span>دعم فني</span></button>
+            <button class="action-btn"><i class="fas fa-user-friends"></i><span>إدارة العملاء</span></button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Card Distribution Widget -->
+      <section class="widget" id="distribution-widget">
+        <div class="widget-header">
+          <div class="widget-header-text">
+            <h2><i class="fas fa-paper-plane"></i> ارسال دفعة كروت جديدة</h2>
+            <p>قم برفع ملف الكروت (Excel, CSV, PDF) لشحنها وتوزيعها على العملاء بشكل فوري وآمن.</p>
+          </div>
+          <button class="btn btn-primary btn-send" id="toggle-form-btn">
+            <i class="fas fa-plus-circle"></i><span>ارسل الآن</span>
+          </button>
+        </div>
+        <div class="form-wrapper" id="form-wrapper">
+          <div class="form-container">
+            <form id="distribution-form" novalidate>
+              <!-- Package Selection (Radio Grid) -->
+              <div class="form-row">
+                <div class="form-group full-width">
+                  <label><i class="fas fa-tag"></i> فئة الباقة <span class="required">*</span></label>
+                  <div class="package-grid" id="package-grid">
+                    <label class="package-opt">
+                      <input type="radio" name="pkg" value="100">
+                      <span class="pkg-label">١٠٠ ريال</span>
+                    </label>
+                    <label class="package-opt">
+                      <input type="radio" name="pkg" value="200">
+                      <span class="pkg-label">٢٠٠ ريال</span>
+                    </label>
+                    <label class="package-opt">
+                      <input type="radio" name="pkg" value="500">
+                      <span class="pkg-label">٥٠٠ ريال</span>
+                    </label>
+                    <label class="package-opt">
+                      <input type="radio" name="pkg" value="1000">
+                      <span class="pkg-label">١٠٠٠ ريال</span>
+                    </label>
+                    <label class="package-opt">
+                      <input type="radio" name="pkg" value="custom">
+                      <span class="pkg-label">مخصص</span>
+                    </label>
+                  </div>
+                  <div class="custom-pkg-wrap" id="custom-pkg-wrap" hidden>
+                    <input type="number" id="custom-pkg-value" class="form-control" placeholder="أدخل قيمة الباقة المخصصة...">
+                  </div>
+                  <div class="field-error" id="package-error"></div>
+                </div>
+              </div>
+              <!-- Operation ID + Card Count -->
+              <div class="form-row" id="row-op-count">
+                <div class="form-group">
+                  <label for="operation-id"><i class="fas fa-fingerprint"></i> رقم العملية التسلسلي</label>
+                  <input type="text" id="operation-id" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="card-count"><i class="fas fa-sort-numeric-up-alt"></i> عدد الكروت <span class="required">*</span></label>
+                  <input type="number" id="card-count" class="form-control" min="1" max="5000" placeholder="أدخل كمية الكروت المتوفرة في الملف...">
+                  <div class="field-error" id="count-error"></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group full-width">
+                  <label for="file-input"><i class="fas fa-file-upload"></i> رفع الملف <span class="required">*</span></label>
+                  <div class="file-upload-zone" id="file-upload-zone">
+                    <div class="file-upload-content">
+                      <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                      <p class="upload-text">اسحب وأفلت الملف هنا أو <span class="upload-link">تصفح الملفات</span></p>
+                      <p class="upload-hint">CSV, XLSX, PDF — حد أقصى 5 ميجابايت</p>
+                    </div>
+                    <input type="file" id="file-input" accept=".csv,.xlsx,.pdf" hidden>
+                  </div>
+                  <div class="file-info" id="file-info" hidden>
+                    <i class="fas fa-file"></i>
+                    <span id="file-name"></span>
+                    <span id="file-size"></span>
+                    <button type="button" class="file-remove" id="file-remove" aria-label="إزالة الملف">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <div class="field-error" id="file-error"></div>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit" id="submit-btn" disabled>
+                  <span class="btn-text"><i class="fas fa-check-circle"></i> تأكيد وإرسال الدفعة</span>
+                  <span class="btn-loader" hidden><i class="fas fa-spinner fa-spin"></i> جاري الإرسال...</span>
+                </button>
+                <button type="button" class="btn btn-ghost" id="cancel-form-btn"><i class="fas fa-times-circle"></i><span>إلغاء</span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two Column: Operations + Logs -->
+      <div class="two-column">
+        <section class="card operations-section">
+          <div class="card-header">
+            <h2><i class="fas fa-list-ol"></i> تفاصيل العمليات</h2>
+            <div class="card-actions">
+              <button class="btn btn-sm btn-ghost" id="refresh-table-btn"><i class="fas fa-sync-alt"></i></button>
+              <span class="badge badge-primary" id="operations-count">5 عمليات</span>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="operations-table" id="operations-table">
+              <thead>
+                <tr><th>رقم العملية</th><th>الفئة</th><th>العدد</th><th>القيمة</th><th>التاريخ</th><th>الوقت</th></tr>
+              </thead>
+              <tbody id="operations-body"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="card logs-section">
+          <div class="card-header">
+            <h2><i class="fas fa-history"></i> سجل النظام</h2>
+            <span class="badge badge-secondary" id="logs-count">7 سجل</span>
+          </div>
+          <div class="logs-container" id="logs-container"></div>
+        </section>
+      </div>
+
+      <!-- Statistics -->
+      <section class="card statistics-section">
+        <div class="card-header">
+          <h2><i class="fas fa-chart-line"></i> إحصائيات وتحليلات</h2>
+          <div class="card-actions">
+            <div class="chart-tabs">
+              <button class="chart-tab active" data-period="week">أسبوعي</button>
+              <button class="chart-tab" data-period="month">شهري</button>
+              <button class="chart-tab" data-period="year">سنوي</button>
+            </div>
+            <div class="view-tabs">
+              <button class="view-tab active" data-view="line" title="مخطط بياني"><i class="fas fa-chart-line"></i></button>
+              <button class="view-tab" data-view="bar" title="أعمدة"><i class="fas fa-chart-bar"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="main-chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="brand-icon"><i class="fab fa-connectdevelop"></i></div>
+            <div class="footer-text">
+              <span class="footer-name">نظام وسيط الرقمي</span>
+              <span class="footer-copy">جميع الحقوق محفوظة &copy; 2026</span>
+            </div>
+          </div>
+          <div class="footer-links">
+            <a href="#" class="footer-link" data-brand="whatsapp"><i class="fab fa-whatsapp"></i><span>واتساب</span></a>
+            <a href="#" class="footer-link" data-brand="telegram"><i class="fab fa-telegram"></i><span>تيليجرام</span></a>
+            <a href="#" class="footer-link" data-brand="facebook"><i class="fab fa-facebook-f"></i><span>فيسبوك</span></a>
+            <a href="#" class="footer-link" data-brand="twitter"><i class="fab fa-x-twitter"></i><span>تويتر</span></a>
+            <a href="#" class="footer-link" data-brand="instagram"><i class="fab fa-instagram"></i><span>انستغرام</span></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
