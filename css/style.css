@@ -309,7 +309,7 @@ ul, ol { list-style: none; }
   background: linear-gradient(
     135deg, 
     rgba(var(--kpi-color-rgb, 99, 102, 241), 0.06) 0%, 
-    #ffffff 100%
+    rgba(255, 255, 255, 0.03) 100%
   );
   
   border: 1px solid var(--border-color);
